@@ -1,4 +1,4 @@
-<h3>This is the index page</h3>
+<h3>Your Applications</h3>
 <ol><% @applications.each do |application| %>
-  <li><%= application.position %></li>
+  <li><%= link_to application.company, application %></li>
 <% end %></ol>
