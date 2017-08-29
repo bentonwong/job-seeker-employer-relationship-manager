@@ -10,6 +10,11 @@ class ApplicationsController < ApplicationController
 
   def create
     @application = Application.new(application_params)
+    if @application.save
+      redirect_to @application
+    else
+      render :new
+    end
   end
 
   def show
