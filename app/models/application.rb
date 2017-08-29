@@ -1,13 +1,9 @@
 class Application < ApplicationRecord
-  def index
-    @applications = Application.all
-  end
+  belongs_to :status
+  has_many :application_notes
+  has_many :notes, through: :application_notes
 
-  def new
-    @application = Application.new
-  end
-  
-  def show
-    @application = Application.find_by(id: params[:id])
+  def notes_attributes=(notes_attributes)
+    notes_attributes.values.each {|note_attributes| self.notes.build(note_attributes) if note_attributes.present? && note_attributes[:content].present?}
   end
 end

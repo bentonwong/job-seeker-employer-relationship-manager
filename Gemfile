@@ -39,10 +39,6 @@ gem 'pry'
 
 # Use Dropzone for drag and drop of document to upload.
 gem 'dropzonejs-rails'
-# Use Refile for uploading document
-gem 'refile', require: ['refile/rails', 'refile/simple_form'], github:  'manfe/refile'
-gem 'refile-mini_magick'
-gem 'refile-s3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

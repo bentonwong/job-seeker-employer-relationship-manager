@@ -1,8 +1,17 @@
 <h3><%= @application.company %></h3>
 <hr>
-<p>Status: <%= @application.status %></h3>
+<p>Status: <%= @status.name %></h3>
 <br>
 <hr>
 <p>Position: <%= @application.position %></p>
+<p>Location: <%= @application.location if @application.location %></p>
 <p>Description: <%= @application.description %></p>
-<p>Notes: <%= @application.notes %></p>
+<h4>Notes</h4>
+<% if !@application.notes.blank? %>
+  <ol><% @application.notes.reverse.each do |note| %>
+    <li><%= note.date %> -> <%= note.content %></li>
+  <% end %></ol>
+<% else %>
+  <%= "N/A" %><br>
+<% end %>
+<hr>

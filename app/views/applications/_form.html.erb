@@ -1,0 +1,27 @@
+<%= form_for(application) do |f| %>
+
+  <%= f.label :status %><br/>
+  <%= f.collection_select :status_id, Status.order(:id), :id, :name, include_blank: true %><br/>
+  <hr>
+  <%= f.label :company %><br/>
+  <%= f.text_field :company %><br/>
+  <%= f.label :position %><br/>
+  <%= f.text_field :position %><br/>
+  <%= f.label :location %>
+  <%= f.text_field :location %><br/>
+  <%= f.label :description %><br/>
+  <%= f.text_area :description, cols: "60", rows: "7"  %><br/>
+
+  <h4><i>Add Note</i></h4>
+  <%= f.fields_for :notes, application.notes.build do |notes_field| %>
+    <p><%= notes_field.label :date %></p>
+    <%= notes_field.date_select :date, :order => [:month, :day, :year], :max => Date.today %><br>
+    <p><%= notes_field.label :content %></p>
+    <%= notes_field.text_area :content, cols: "60", rows: "7" %>
+   <% end %>
+
+   <br/>
+   <br/>
+
+  <%= f.submit %>
+<% end %>
