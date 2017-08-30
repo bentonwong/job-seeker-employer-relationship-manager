@@ -1,12 +1,24 @@
 <h3><%= @application.company %></h3>
+<%= button_to "Back to Index", applications_path, method: :get %>
 <hr>
 <p>Status: <%= @status.name %></h3>
 <br>
 <hr>
-<p>Position: <%= @application.position %></p>
+<p>Position: <strong><%= @application.position %></strong></p>
 <p>Location: <%= @application.location if @application.location %></p>
 <p>Description: <%= @application.description %></p>
-<p>Document: <%= link_to "Download Document", @application.document_url %></p>
+<!--<p>Document: <%= link_to "Download Document", @application.document_url %></p> -->
+
+<h4>Attachments</h4>
+<% if !@application.attachments.blank? %>
+  <ol><% @application.attachments.each do |attachment| %>
+    <li><%= link_to attachment.name, attachment.document_url %></li>
+  <% end %></ol>
+<% else %>
+  <%= "N/A" %><br>
+<% end %>
+<hr>
+
 <h4>Notes</h4>
 <% if !@application.notes.blank? %>
   <ol><% @application.notes.reverse.each do |note| %>
@@ -18,5 +30,4 @@
 <hr>
 
 <%= button_to "Edit Application", edit_application_path(@application), method: :get %>
-<%= button_to "Back to Index", applications_path, method: :get %>
 <%= button_to "Delete Application", application_path, method: :delete %>

@@ -7,19 +7,27 @@
   <%= f.text_field :company %><br/>
   <%= f.label :position %><br/>
   <%= f.text_field :position %><br/>
-  <%= f.label :location %>
+  <%= f.label :location %><br/>
   <%= f.text_field :location %><br/>
   <%= f.label :description %><br/>
   <%= f.text_area :description, cols: "60", rows: "7"  %><br/>
   <%= f.label :document %><br/>
   <%= f.file_field :document %><br/>
-
-  <h4><i>Add Note</i></h4>
+  <hr>
+  <p><i>Add Document</i></p>
+  <%= f.fields_for :attachments, application.attachments.build do |attachments_field| %>
+    <p><%= attachments_field.label :name %></p>
+    <p><%= attachments_field.text_field :name %></p>
+    <p><%= attachments_field.label :document %></p>
+    <p><%= attachments_field.file_field :document %></p>
+  <% end %>
+  <hr>
+  <p><i>Add Note</i></p>
   <%= f.fields_for :notes, application.notes.build do |notes_field| %>
     <p><%= notes_field.label :date %></p>
-    <%= notes_field.date_select :date, :order => [:month, :day, :year], :max => Date.today %><br>
+    <p><%= notes_field.date_select :date, :order => [:month, :day, :year], :max => Date.today %></p>
     <p><%= notes_field.label :content %></p>
-    <%= notes_field.text_area :content, cols: "60", rows: "7" %>
+    <p><%= notes_field.text_area :content, cols: "60", rows: "7" %></p>
   <% end %>
 
   <br/>
