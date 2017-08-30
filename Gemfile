@@ -39,6 +39,7 @@ gem 'pry'
 
 # Use Dropzone for drag and drop of document to upload.
 gem 'dropzonejs-rails'
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
