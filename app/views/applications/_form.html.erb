@@ -1,4 +1,4 @@
-<%= form_for(application) do |f| %>
+<%= form_for application, html: { multipart: true } do |f| %>
 
   <%= f.label :status %><br/>
   <%= f.collection_select :status_id, Status.order(:id), :id, :name, include_blank: true %><br/>
@@ -11,6 +11,8 @@
   <%= f.text_field :location %><br/>
   <%= f.label :description %><br/>
   <%= f.text_area :description, cols: "60", rows: "7"  %><br/>
+  <%= f.label :document %><br/>
+  <%= f.file_field :document %><br/>
 
   <h4><i>Add Note</i></h4>
   <%= f.fields_for :notes, application.notes.build do |notes_field| %>
@@ -18,10 +20,10 @@
     <%= notes_field.date_select :date, :order => [:month, :day, :year], :max => Date.today %><br>
     <p><%= notes_field.label :content %></p>
     <%= notes_field.text_area :content, cols: "60", rows: "7" %>
-   <% end %>
+  <% end %>
 
-   <br/>
-   <br/>
+  <br/>
+  <br/>
 
   <%= f.submit %>
 <% end %>

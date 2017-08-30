@@ -6,6 +6,7 @@
 <p>Position: <%= @application.position %></p>
 <p>Location: <%= @application.location if @application.location %></p>
 <p>Description: <%= @application.description %></p>
+<p>Document: <%= link_to "Download Document", @application.document_url %></p>
 <h4>Notes</h4>
 <% if !@application.notes.blank? %>
   <ol><% @application.notes.reverse.each do |note| %>
@@ -15,3 +16,7 @@
   <%= "N/A" %><br>
 <% end %>
 <hr>
+
+<%= button_to "Edit Application", edit_application_path(@application), method: :get %>
+<%= button_to "Back to Index", applications_path, method: :get %>
+<%= button_to "Delete Application", application_path, method: :delete %>

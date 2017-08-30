@@ -1,4 +1,7 @@
 <h3>Your Applications</h3>
+
+<%= button_to "New Application", new_application_path, method: :get %>
+
 <ol><% @applications.each do |application| %>
   <li><%= link_to application.company, application %> | <%= @status.find(application.status_id).name %></li>
 <% end %></ol>
