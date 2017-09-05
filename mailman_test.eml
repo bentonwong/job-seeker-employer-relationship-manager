@@ -1,8 +1,6 @@
 Date: Tuesday, 05 Sep 2017 14:00:00 -0800
 From: foo@example.com
-Subject: ***TEST MAILMAN Email***
+Subject: Update 2
 To: email_to_erm@example.com
 
-This is a test email for use with Mailman.
-
-Does this work?
+Testing implementation in model
