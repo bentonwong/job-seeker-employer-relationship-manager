@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Job Seeker Employer Relationship Manager by Benton Wong
 
-Things you may want to cover:
+This application is a Ruby on Rails application to allow job seekers to track and manage employment applications.  Users can log information about the position, interactions with the employer, and upload related documents.
 
-* Ruby version
+##License
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The application is available as open source under the terms of the MIT License.
