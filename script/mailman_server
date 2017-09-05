@@ -5,6 +5,6 @@ require "mailman"
 
 Mailman::Application.run do
   default do
-    puts "Received: #{message.subject} "
+    Email.create! subject: message.subject, body: message.body.decoded, from: message.from.first, to: message.from.first, date: message.date
   end
 end
