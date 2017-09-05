@@ -45,7 +45,7 @@ class ApplicationsController < ApplicationController
   private
 
     def application_params
-      params.require(:application).permit(:company, :position, :description, :location, :document, :notes, :status_id, notes_attributes: [:date, :content], attachments_attributes: [:name, :document])
+      params.require(:application).permit(:company, :position, :description, :location, :posting_url, :document, :notes, :status_id, notes_attributes: [:date, :content], attachments_attributes: [:name, :document])
     end
 
 end

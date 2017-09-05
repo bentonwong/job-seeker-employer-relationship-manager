@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170830230040) do
+ActiveRecord::Schema.define(version: 20170905183333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20170830230040) do
     t.datetime "updated_at",              null: false
     t.integer  "status_id",   default: 1
     t.string   "document"
+    t.string   "posting_url"
   end
 
   create_table "attachments", force: :cascade do |t|

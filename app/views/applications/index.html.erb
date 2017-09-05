@@ -1,7 +1,20 @@
 <h3>Your Applications</h3>
 
-<%= button_to "New Application", new_application_path, method: :get %>
+<%= button_to "Create New Application", new_application_path, method: :get %><br/>
 
-<ol><% @applications.each do |application| %>
-  <li><%= link_to application.company, application %> | <%= @status.find(application.status_id).name %></li>
-<% end %></ol>
+<table>
+  <tr>
+    <th>Company</th>
+    <th>Position</th>
+    <th>Location</th>
+    <th>Status</th>
+  </tr>
+  <% @applications.each do |application| %>
+    <tr>
+      <td><%= link_to application.company, application %></td>
+      <td><%= application.position %>
+      <td><%= application.location %>
+      <td><%= @status.find(application.status_id).name %></td>
+    </tr>
+  <% end %>
+</table>

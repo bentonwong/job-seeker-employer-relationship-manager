@@ -9,10 +9,12 @@
   <%= f.text_field :position %><br/>
   <%= f.label :location %><br/>
   <%= f.text_field :location %><br/>
+  <%= f.label :posting_url, 'Link to Job Announcement' %><br/>
+  <%= f.text_field :posting_url %><br/>
   <%= f.label :description %><br/>
   <%= f.text_area :description, cols: "60", rows: "7"  %><br/>
-  <%= f.label :document %><br/>
-  <%= f.file_field :document %><br/>
+  <!--<%= f.label :document %><br/>
+  <%= f.file_field :document %><br/> -->
   <hr>
   <p><i>Add Document</i></p>
   <%= f.fields_for :attachments, application.attachments.build do |attachments_field| %>
