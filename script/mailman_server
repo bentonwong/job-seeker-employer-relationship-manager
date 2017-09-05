@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+require "rubygems"
+require "bundler/setup"
+require "mailman"
+
+Mailman::Application.run do
+  default do
+    puts "Received: #{message.subject} "
+  end
+end

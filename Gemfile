@@ -43,6 +43,7 @@ gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'carrierwave', '~> 1.0'
 gem 'bootstrap-sass', '~> 2.3.2'
 gem 'griddler'
+gem 'mailman', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
