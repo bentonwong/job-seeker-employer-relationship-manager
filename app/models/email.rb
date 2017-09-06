@@ -4,7 +4,7 @@ class Email < ApplicationRecord
     if email_id.present?
       Email.update(email_id, body: message.body.decoded)
     else
-      Email.create! subject: message.subject, body: message.body.decoded, from: message.from.first, to: message.from.first, date: message.date
+      Email.create! subject: message.subject, body: message.text_part.body.decoded, from: message.from.first, to: message.from.first, date: message.date
     end
   end
 end
