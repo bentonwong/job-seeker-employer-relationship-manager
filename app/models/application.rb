@@ -4,6 +4,7 @@ class Application < ApplicationRecord
   has_many :notes, through: :application_notes
   has_many :application_attachments
   has_many :attachments, through: :application_attachments
+  has_many :emails
   mount_uploader :document, DocumentUploader
 
 
