@@ -1,14 +1,17 @@
-<table>
+<h4>All Emails</h4>
+<table cellpadding="10">
   <tr>
-    <th>Id</th>
+    <th>Date</th>
     <th>From</th>
+    <th>Application</th>
     <th>To</th>
     <th>Subject</th>
   </tr>
   <% @emails.each do |email| %>
     <tr>
-      <td><%= email.id %></td>
+      <td><%= link_to email.date, email_path(email) %></td>
       <td><%= email.from %></td>
+      <td><%= email.application_id ? (link_to Application.find_by(id: email.application_id).company, application_path(Application.find_by(id: email.application_id))) : "N/A"  %>
       <td><%= email.to %></td>
       <td><%= email.subject %></td>
     </tr>
