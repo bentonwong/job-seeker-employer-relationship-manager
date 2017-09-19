@@ -1,1 +1,29 @@
-<%= @email.subject %>
+
+
+<div>
+  <div style="float:left;">
+    <%= button_to "Edit Email Association", edit_email_path(@email), method: :get %>
+  </div>
+  <div style="float:left;">
+    <%= button_to "Back to Index", emails_path, method: :get %>
+  </div>
+  <div style="clear:both;">
+  </div>
+</div>
+
+<table cellpadding="15">
+  <tr>
+      <th>Date</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Subject</th>
+      <th>Message</th>
+  </tr>
+  <tr>
+    <td><%= @email.date %></td>
+    <td><%= @email.from %></td>
+    <td><%= @email.to %></td>
+    <td><%= @email.subject %></td>
+    <td><%= @email.body %></td>
+  </tr>
+</table>

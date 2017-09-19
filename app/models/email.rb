@@ -1,6 +1,8 @@
 require 'pry'
 
 class Email < ApplicationRecord
+  belongs_to :application
+
   def self.receive_email(message)
     #use .match
     #regex: (?<=@).+($)

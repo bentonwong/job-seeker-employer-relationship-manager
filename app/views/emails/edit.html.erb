@@ -1,7 +1,20 @@
-<h3>Update email association</h3>
+<h3>Change the application that is associated with this email</h3>
+
+<br/>
+
 <%= form_for @email, html: { multipart: true } do |f| %>
 
-  <%= f.collection_select :application_id, Application.order(:id), :id, :company, include_blank: true %><br/>
+  <%= f.collection_select :application_id, Application.order(:id), :id, :company, :selected => params[:id], include_blank: true %><br/><br/>
 
-  <%= f.submit %>
+
+  <div>
+    <div style="float:left;">
+      <%= f.submit %>
+    </div>
+    <div style="float:left;">
+      <%= button_to "Back to Show", email_path(@email), method: :get %>
+    </div>
+    <div style="clear:both;">
+    </div>
+  </div>
 <% end %>

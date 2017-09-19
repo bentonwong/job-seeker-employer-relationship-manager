@@ -32,7 +32,7 @@
 
 <h4>Emails</h4>
   <% if !@application.emails.blank? %>
-    <table>
+    <table cellpadding="15">
       <tr>
           <th>Date</th>
           <th>Subject</th>
@@ -40,7 +40,7 @@
       </tr>
       <ol><% @application.emails.reverse.each do |email| %>
         <tr>
-          <td><%= email.date %></td>
+          <td><%= link_to email.date, email_path %></td>
           <td><%= email.subject %></td>
           <td><%= email.body %></td>
         </tr>
