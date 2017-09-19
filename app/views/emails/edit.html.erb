@@ -1,0 +1,7 @@
+<h3>Update email association</h3>
+<%= form_for @email, html: { multipart: true } do |f| %>
+
+  <%= f.collection_select :application_id, Application.order(:id), :id, :company, include_blank: true %><br/>
+
+  <%= f.submit %>
+<% end %>

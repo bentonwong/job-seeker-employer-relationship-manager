@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th>Id</th>
+    <th>From</th>
+    <th>To</th>
+    <th>Subject</th>
+  </tr>
+  <% @emails.each do |email| %>
+    <tr>
+      <td><%= email.id %></td>
+      <td><%= email.from %></td>
+      <td><%= email.to %></td>
+      <td><%= email.subject %></td>
+    </tr>
+  <% end %>
+</table>
