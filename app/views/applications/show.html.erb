@@ -1,4 +1,8 @@
 <h3><%= @application.company %></h3>
+
+<%= image_tag "https://logo.clearbit.com/#{@application.company}.com?size=75&format=png" %>
+<br/>
+<br/>
 <%= button_to "Back to Index", applications_path, method: :get %>
 <hr>
 <p>Status: <%= @status.name %></h3>
