@@ -5,8 +5,7 @@
 <br/>
 <%= button_to "Back to Index", applications_path, method: :get %>
 <hr>
-<p>Status: <%= @status.name %></h3>
-<br>
+<h3>Status: <%= @status.name %></h3>
 <hr>
 <p>Position: <strong><%= @application.position %></strong></p>
 <p>Location: <%= @application.location if @application.location %></p>
@@ -51,6 +50,8 @@
         </tr>
       <% end %></ol>
     </table>
+  <% else %>
+    <%= "N/A" %><br>
   <% end %>
 <hr>
 
