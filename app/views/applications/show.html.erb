@@ -6,6 +6,7 @@
 <hr>
 <p>Position: <strong><%= @application.position %></strong></p>
 <p>Location: <%= @application.location if @application.location %></p>
+<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{@application.location}&size=300x300&zoom=15" %>
 <p>Description: <%= @application.description %></p>
 <p>Link to Job Announcement: <%= link_to @application.posting_url, @application.posting_url %></p>
 <!--<p>Document: <%= link_to "Download Document", @application.document_url %></p> -->
