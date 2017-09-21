@@ -7,7 +7,6 @@ class Application < ApplicationRecord
   has_many :emails
   mount_uploader :document, DocumentUploader
 
-
   def notes_attributes=(notes_attributes)
     notes_attributes.values.each {|note_attributes| self.notes.build(note_attributes) if note_attributes.present? && note_attributes[:content].present?}
   end

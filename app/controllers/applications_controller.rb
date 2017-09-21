@@ -1,8 +1,13 @@
 class ApplicationsController < ApplicationController
 
   def index
-    @applications = Application.all
-    @status = Status.all
+    if params["status"]["status_id"].present?
+      @id = params["status"]["status_id"]
+      @applications = Application.where(status_id: @id)
+    else
+      @applications = Application.all
+    end
+    @statuses = Status.all
   end
 
   def new

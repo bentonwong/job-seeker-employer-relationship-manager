@@ -37,6 +37,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'pry'
 
+gem 'filterrific'
+
 # Use Dropzone for drag and drop of document to upload.
 gem 'dropzonejs-rails'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
