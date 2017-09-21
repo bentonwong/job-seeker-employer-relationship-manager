@@ -3,7 +3,16 @@
 <%= image_tag "https://logo.clearbit.com/#{@application.company}.com?size=75&format=png" %>
 <br/>
 <br/>
-<%= button_to "Back to Index", applications_path, method: :get %>
+<div>
+  <div style="float:left;">
+    <%= button_to "Back to Index", applications_path, method: :get %>
+  </div>
+  <div style="float:left;">
+    <%= button_to "Edit Application", edit_application_path(@application), method: :get %>
+  </div>
+  <div style="clear:both;">
+  </div>
+</div>
 <hr>
 <h3>Status: <%= @status.name %></h3>
 <hr>

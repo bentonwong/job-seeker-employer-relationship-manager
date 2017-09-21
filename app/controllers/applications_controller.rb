@@ -1,7 +1,7 @@
 class ApplicationsController < ApplicationController
 
   def index
-    if params["status"]["status_id"].present?
+    if params["status"].present? && params["status"]["status_id"].present?
       @id = params["status"]["status_id"]
       @applications = Application.where(status_id: @id)
     else
