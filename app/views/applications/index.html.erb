@@ -1,15 +1,14 @@
 <h3>Your Applications</h3>
-
 <div>
   <div style="float:left;">
     <%= button_to "Create New Application", new_application_path, method: :get %>
   </div>
   <div style="float:left;">
     <div class="filter_options_controller">
-      <form class="filter_form">
-        <%= select(:status, :status_id, @statuses.collect{|status| [status.name, status.id]}, { include_blank: true } ) %>
-        <input type="submit" value="Filter" />
-      </form>
+      <%= form_tag applications_path, method: "get" do%>
+        <%= collection_select(:status, :id, Status.all, :id, :name, { include_blank: "Select Status" }) %>
+        <%= submit_tag "Filter" %>
+      <% end %>
     </div>
   </div>
   <div style="clear:both;">
@@ -20,8 +19,6 @@
 <%= "Filter: #{Status.find_by(id: @id).name}" if Status.find_by(id: @id) %>
 
 <hr>
-
-
 
 <table cellpadding="10">
   <tr>
