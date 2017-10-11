@@ -36,7 +36,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'pry'
-
 gem 'filterrific'
 
 # Use Dropzone for drag and drop of document to upload.
@@ -48,6 +47,7 @@ gem 'griddler'
 gem 'mailman', require: false
 gem 'figaro'
 gem 'faraday'
+gem 'active_model_serializers'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -9,4 +9,5 @@ Rails.application.routes.draw do
 
   get '/search', to: 'companies#search'
   post '/search', to: 'companies#glassdoor_search'
+  
 end

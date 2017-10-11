@@ -4,11 +4,3 @@
   <%= text_field_tag :query %>
   <%= submit_tag "Search Glassdoor!" %>
 <% end %>
-<div>
-  <% if @error %>
-    <p><%= @error %></p>
-  <% elsif @company %>
-    <%= @company %>
-  <% end %>
-
-</div>

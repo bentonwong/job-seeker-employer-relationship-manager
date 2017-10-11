@@ -1,7 +1,6 @@
 class CompaniesController < ApplicationController
 
   def search
-
   end
 
 
@@ -26,7 +25,7 @@ class CompaniesController < ApplicationController
       rescue Faraday::TimeoutError
         @error = "There was a timeout. Please try again."
        end
-      render 'search'
+       render json: @company
     end
 
 end
