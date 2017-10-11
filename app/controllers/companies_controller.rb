@@ -15,16 +15,21 @@ class CompaniesController < ApplicationController
         req.params['q'] = params[:query]
         req.params['action'] = "employers"
       end
-      body = JSON.parse(@resp.body)
+
       if @resp.success?
-        @company = body["response"]["employers"]
+        body = JSON.parse(@resp.body)
+        companies = body["response"]["employers"]
+        @exact_match = companies.select {|company| company["exactMatch"] == true}.first
+        #raise @exact_match["name"].inspect
+        Company.create! name: @exact_match["name"], industry: @exact_match["industry"], website: @exact_match["website"], overall_rating: @exact_match["overallRating"], square_logo: @exact_match["squareLogo"], ceo_name: @exact_match["ceo"]["name"]
+        render json: @exact_match #change this to update application company info
       else
         @error = body["meta"["errorDetail"]]
       end
       rescue Faraday::TimeoutError
         @error = "There was a timeout. Please try again."
       end
-      render json: @company
+
     end
 
 end
