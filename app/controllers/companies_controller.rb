@@ -1,18 +1,19 @@
+require 'pry'
+
 class CompaniesController < ApplicationController
 
   def search
   end
 
   def glassdoor_search
-    raise params[:application_id].inspect
     begin
       @resp = Faraday.get "http://api.glassdoor.com/api/api.htm?" do |req|
         req.params['v'] = 1
         req.params['format'] = "json"
         req.params['t.p'] = ENV["GLASSDOOR_PARTNER_ID"]
         req.params['t.k'] = ENV["GLASSDOOR_KEY"]
-        req.params['userip'] = '192.168.43.42' #find command to extract from client
-        req.params['useragent'] = "Mozilla/5.0" #find command to extract from client
+        req.params['userip'] = request.remote_ip
+        req.params['useragent'] = request.env['HTTP_USER_AGENT']
         req.params['q'] = params[:query]
         req.params['action'] = "employers"
       end
@@ -21,8 +22,14 @@ class CompaniesController < ApplicationController
         body = JSON.parse(@resp.body)
         companies = body["response"]["employers"]
         @exact_match = companies.select {|company| company["exactMatch"] == true}.first
-        Company.create! name: @exact_match["name"], industry: @exact_match["industry"], website: @exact_match["website"], overall_rating: @exact_match["overallRating"], square_logo: @exact_match["squareLogo"], ceo_name: @exact_match["ceo"]["name"]
-        render json: @exact_match #change this to update application company info
+        new_company = Company.find_or_create_by(name: @exact_match["name"]) do |company|
+           company.industry = @exact_match["industry"]
+           company.website = @exact_match["website"]
+           company.overall_rating = @exact_match["overallRating"]
+           company.square_logo = @exact_match["squareLogo"]
+           company.ceo_name = @exact_match["ceo"]["name"]
+        end
+        redirect_to applications_path(params[:application_id])
       else
         @error = body["meta"["errorDetail"]]
       end

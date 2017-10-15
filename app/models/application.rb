@@ -5,6 +5,8 @@ class Application < ApplicationRecord
   has_many :application_attachments
   has_many :attachments, through: :application_attachments
   has_many :emails
+  has_one :application_company_relationships, class_name: ApplicationCompanyRelationship
+  has_one :company, through: :application_company_relationships
   mount_uploader :document, DocumentUploader
 
   def notes_attributes=(notes_attributes)

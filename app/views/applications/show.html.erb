@@ -1,6 +1,6 @@
-<h3><%= @application.company %></h3>
+<h3><%= @application[:company] %></h3>
 
-<%= image_tag "https://logo.clearbit.com/#{@application.company}.com?size=75&format=png" %>
+<%= image_tag "https://logo.clearbit.com/#{@application[:company]}.com?size=75&format=png" %>
 <br/>
 <br/>
 <div>
@@ -11,7 +11,7 @@
     <%= button_to "Edit Application", edit_application_path(@application), method: :get %>
   </div>
   <div style="float:left;">
-    <%= button_to "Get Company Info from Glassdoor", search_path(query: @application.company, application_id: @application.id), method: :post %>
+    <%= button_to "Get Company Info from Glassdoor", search_path(query: @application[:company], application_id: @application.id), method: :post %>
   </div>
   <div style="clear:both;">
   </div>
