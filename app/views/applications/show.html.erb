@@ -1,7 +1,18 @@
 <h3><%= @application.company_name %></h3>
 
-<%= image_tag "https://logo.clearbit.com/#{@application.company_name}.com?size=75&format=png" %>
-<br/>
+
+<%= image_tag @application.company.square_logo, :size => '50x50' if @application.company %>
+
+<% if @application.company %>
+  <ul><div>
+    <li><%= "Overall rating: #{@application.company.overall_rating}" %></li>
+    <li><%= "Industry: #{@application.company.industry}" %></li>
+    <li>Website: <%= @application.company.website %></li>
+    <li><%= "CEO: #{@application.company.ceo_name}" %></li><br/>
+    <a href='https://www.glassdoor.com/index.htm'>powered by <img src='https://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' title='Job Search' /></a>
+  </div></ul>
+<% end %>
+
 <br/>
 <div>
   <div style="float:left;">

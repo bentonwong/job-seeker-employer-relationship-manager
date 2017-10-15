@@ -1,5 +1,3 @@
-require 'pry'
-
 class CompaniesController < ApplicationController
 
   def search
