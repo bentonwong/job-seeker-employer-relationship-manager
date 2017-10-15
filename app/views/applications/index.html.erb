@@ -29,7 +29,7 @@
   </tr>
   <% @applications.each do |application| %>
     <tr>
-      <td><%= link_to application[:company], application_path(application) %></td>
+      <td><%= link_to application.company_name, application_path(application) %></td>
       <td><%= application.position %>
       <td><%= application.location %>
       <td><%= application.status.name %></td>
