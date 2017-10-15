@@ -29,6 +29,7 @@ class CompaniesController < ApplicationController
            company.square_logo = @exact_match["squareLogo"]
            company.ceo_name = @exact_match["ceo"]["name"]
         end
+        #insert line to associate the two objects
         redirect_to applications_path(params[:application_id])
       else
         @error = body["meta"["errorDetail"]]
