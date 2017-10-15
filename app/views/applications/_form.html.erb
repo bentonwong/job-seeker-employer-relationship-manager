@@ -3,8 +3,8 @@
   <%= f.label :status %><br/>
   <%= f.collection_select :status_id, Status.order(:id), :id, :name, include_blank: true %><br/>
   <hr>
-  <%= f.label :company %><br/>
-  <%= f.text_field :company %><br/>
+  <%= f.label :company_name %><br/>
+  <%= f.text_field :company_name %><br/>
   <%= f.label :position %><br/>
   <%= f.text_field :position %><br/>
   <%= f.label :location %><br/>
