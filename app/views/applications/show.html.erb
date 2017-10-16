@@ -1,13 +1,14 @@
 <h3><%= @application.company_name %></h3>
 
-
-<%= image_tag @application.company.square_logo, :size => '50x50' if @application.company %>
-
 <% if @application.company %>
+  <div>
+    <%= image_tag @application.company.square_logo, :size => '50x50' %>
+  </div>
+
   <ul><div>
     <li><%= "Overall rating: #{@application.company.overall_rating}" %></li>
     <li><%= "Industry: #{@application.company.industry}" %></li>
-    <li>Website: <%= @application.company.website %></li>
+    <li>Website: <%= link_to @application.company.website, "http://#{@application.company.website}" %></li>
     <li><%= "CEO: #{@application.company.ceo_name}" %></li><br/>
     <a href='https://www.glassdoor.com/index.htm'>powered by <img src='https://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' title='Job Search' /></a>
   </div></ul>

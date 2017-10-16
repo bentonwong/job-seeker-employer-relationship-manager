@@ -53,8 +53,4 @@ class ApplicationsController < ApplicationController
       params.require(:application).permit(:company_name, :position, :description, :location, :posting_url, :document, :notes, :status_id, notes_attributes: [:date, :content], attachments_attributes: [:name, :document])
     end
 
-    def google_map(center)
-      "https://maps.googleapis.com/maps/api/staticmap?center=#{center}&size=300x300&zoom=17"
-    end
-
 end

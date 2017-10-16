@@ -11,8 +11,10 @@ class CompaniesController < ApplicationController
       if resp.success?
         body = JSON.parse(resp.body)
         companies = body["response"]["employers"]
+
         application = Application.find_by(id: params[:application_id])
         application.company = save_api_results(companies)
+        #render json:companies
         redirect_to application_path(application)
       else
         @error = body["meta"["errorDetail"]]
@@ -20,8 +22,7 @@ class CompaniesController < ApplicationController
       rescue Faraday::TimeoutError
         @error = "There was a timeout. Please try again."
       end
-
-    end
+  end
 
     private
 
