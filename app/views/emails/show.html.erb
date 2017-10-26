@@ -21,8 +21,8 @@
   </tr>
   <tr>
     <td><%= @email.date %></td>
-    <td><%= @email.from %></td>
-    <td><%= @email.to %></td>
+    <td><%= @email.from.delete("[]").gsub!(/\A"|"\Z/, '') %></td>
+    <td><%= @email.to.delete("[]").gsub!(/\A"|"\Z/, '') %></td>
     <td><%= @email.subject %></td>
     <td><%= @email.body %></td>
   </tr>

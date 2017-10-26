@@ -4,7 +4,7 @@
 
 <%= form_for @email, html: { multipart: true } do |f| %>
 
-  <%= f.collection_select :application_id, Application.order(:id), :id, :company, :selected => params[:id], include_blank: true %><br/><br/>
+  <%= f.collection_select :application_id, Application.order(:id), :id, :company_name, :selected => params[:id], include_blank: true %><br/><br/>
 
 
   <div>
