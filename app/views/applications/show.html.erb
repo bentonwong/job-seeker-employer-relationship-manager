@@ -23,6 +23,9 @@
     <%= button_to "Edit Application", edit_application_path(@application), method: :get %>
   </div>
   <div style="float:left;">
+    <%= button_to "Associate Emails", emails_path, method: :get %>
+  </div>
+  <div style="float:left;">
     <%= button_to "Get Company Info from Glassdoor", search_path(query: @application.company_name, application_id: @application.id), method: :post %>
   </div>
   <div style="clear:both;">
