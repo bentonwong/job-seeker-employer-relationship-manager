@@ -11,20 +11,16 @@ class CompaniesController < ApplicationController
       if resp.success?
         body = JSON.parse(resp.body)
         companies = body["response"]["employers"]
-
-        application = Application.find_by(id: params[:application_id])
-        application.company = save_api_results(companies)
-        #render json:companies
-        redirect_to application_path(application)
-      else
-        @error = body["meta"["errorDetail"]]
+        @application = Application.find_by(id: params[:application_id])
+        if save_api_results(companies)
+          @application.company = save_api_results(companies)
+        end
+        redirect_to @application
       end
-      rescue Faraday::TimeoutError
-        @error = "There was a timeout. Please try again."
-      end
+    end
   end
 
-    private
+  private
 
       def set_query_params(req)
         req.params['v'] = 1
@@ -39,12 +35,14 @@ class CompaniesController < ApplicationController
 
       def save_api_results(companies)
         exact_match = companies.select {|company| company["exactMatch"] == true}.first
-        new_company = Company.find_or_create_by(name: exact_match["name"]) do |company|
-           company.industry = exact_match["industry"]
-           company.website = exact_match["website"]
-           company.overall_rating = exact_match["overallRating"]
-           company.square_logo = exact_match["squareLogo"]
-           company.ceo_name = exact_match["ceo"]["name"]
+        if exact_match
+          new_company = Company.find_or_create_by(name: exact_match["name"]) do |company|
+            company.industry = exact_match["industry"]
+            company.website = exact_match["website"]
+            company.overall_rating = exact_match["overallRating"]
+            company.square_logo = exact_match["squareLogo"]
+            company.ceo_name = exact_match["ceo"]["name"]
+          end
         end
       end
 

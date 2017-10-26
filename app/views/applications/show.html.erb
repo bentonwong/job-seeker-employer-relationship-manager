@@ -1,5 +1,5 @@
 <h3><%= @application.company_name %></h3>
-
+<%= @error %>
 <% if @application.company %>
   <div>
     <%= image_tag @application.company.square_logo, :size => '50x50' %>
