@@ -2,6 +2,8 @@
 
 <%= button_to "Back to Applications Index", applications_path, method: :get %>
 
+<p>To import emails for association, forward emails to <strong>emailtoerm@gmail.com</strong>. The click the link below to edit that emails association with an application.</p>
+
 <table cellpadding="10">
   <tr>
     <th>Date</th>
@@ -13,9 +15,9 @@
   <% @emails.each do |email| %>
     <tr>
       <td><%= link_to email.date, email_path(email) %></td>
-      <td><%= email.from %></td>
+      <td><%= email.from.delete("[]").gsub!(/\A"|"\Z/, '') %></td>
       <td><%= email.application_id ? (link_to Application.find_by(id: email.application_id).company_name, application_path(Application.find_by(id: email.application_id))) : "N/A"  %>
-      <td><%= email.to %></td>
+      <td><%= email.to.delete("[]").gsub!(/\A"|"\Z/, '') %></td>
       <td><%= email.subject %></td>
     </tr>
   <% end %>
