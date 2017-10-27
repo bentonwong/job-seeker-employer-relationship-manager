@@ -5,11 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Status.create(name: "Prospecting")
-Status.create(name: "Applied")
-Status.create(name: "Interviewing")
-Status.create(name: "Offer")
-Status.create(name: "Hired")
-Status.create(name: "No offer")
-Status.create(name: "Pass")
-Status.create(name: "Archieve")
+statuses = ["Propsecting", "Applied", "Interviewing", "Offer", "Hired", "No offer", "Pass", "Archieve"]
+statuses.each do |status|
+  Status.create(name: status)
+end
+
+companies = ["Uber", "Apple", "Salesforce", "Google", "LinkedIn", "Amazon", "Airbnb", "Facebook", "Ebay", "Twitter"]
+companies.each do |company|
+  Application.create(position: Faker::Job.title, company_name: company, description: "", location: "", posting_url: Faker::Internet.url)
+end
