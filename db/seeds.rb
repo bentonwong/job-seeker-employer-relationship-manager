@@ -12,5 +12,5 @@ end
 
 companies = ["Uber", "Apple", "Salesforce", "Google", "LinkedIn", "Amazon", "Airbnb", "Facebook", "Ebay", "Twitter"]
 companies.each do |company|
-  Application.create(position: Faker::Job.title, company_name: company, description: "", location: "", posting_url: Faker::Internet.url)
+  Application.create(position: Faker::Job.title, company_name: company, description: Faker::Job.key_skill, location: "#{Faker::Address.city}, #{Faker::Address.state_abbr}", posting_url: Faker::Internet.url)
 end
