@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-statuses = ["Propsecting", "Applied", "Interviewing", "Offer", "Hired", "No offer", "Pass", "Archieve"]
+statuses = ["Prospecting", "Applied", "Interviewing", "Offer", "Hired", "No offer", "Pass", "Archieve"]
 statuses.each do |status|
   Status.create(name: status)
 end
