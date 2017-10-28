@@ -36,7 +36,7 @@
 <hr>
 <p>Position: <strong><%= @application.position %></strong></p>
 <p>Location: <%= @application.location if @application.location %></p>
-<%= image_tag google_map(center: @application.location) %>
+<%= image_tag google_map(center: @application.company_name + ', ' + @application.location) %>
 <p>Description: <%= @application.description %></p>
 <p>Link to Job Announcement: <%= link_to @application.posting_url, @application.posting_url %></p>
 <!--<p>Document: <%= link_to "Download Document", @application.document_url %></p> -->
