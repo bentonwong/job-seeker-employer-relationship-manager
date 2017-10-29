@@ -1,38 +1,42 @@
-<h3>Your Applications</h3>
-<div>
-  <div style="float:left;">
-    <%= button_to "Create New Application", new_application_path, method: :get %>
-  </div>
-  <div style="float:left;">
-    <div class="filter_options_controller">
-      <%= form_tag applications_path, method: "get" do%>
-        <%= collection_select(:status, :id, Status.all, :id, :name, { include_blank: "Select Status" }) %>
-        <%= submit_tag "Filter" %>
-      <% end %>
+<div id="header" style="position:absolute; top:0px; left:0px; height:200px; right:0px;overflow:hidden;">
+  <h3>Your Applications</h3>
+  <div>
+    <div style="float:left;">
+      <%= button_to "Create New Application", new_application_path, method: :get %>
+    </div>
+    <div style="float:left;">
+      <div class="filter_options_controller">
+        <%= form_tag applications_path, method: "get" do%>
+          <%= collection_select(:status, :id, Status.all, :id, :name, { include_blank: "Select Status" }) %>
+          <%= submit_tag "Filter" %>
+        <% end %>
+      </div>
+    </div>
+    <div style="clear:both;">
     </div>
   </div>
-  <div style="clear:both;">
-  </div>
+
+  <br>
+  <%= "Filter: #{Status.find_by(id: @id).name}" if Status.find_by(id: @id) %>
+
+  <hr>
 </div>
 
-<br>
-<%= "Filter: #{Status.find_by(id: @id).name}" if Status.find_by(id: @id) %>
-
-<hr>
-
-<table cellpadding="10">
-  <tr>
-    <th>Company</th>
-    <th>Position</th>
-    <th>Location</th>
-    <th>Status</th>
-  </tr>
-  <% @applications.each do |application| %>
+<div id="content" style="position:absolute; top:120px; bottom:10px; left:0px; right:0px; overflow:auto;">
+  <table cellpadding="10">
     <tr>
-      <td><%= link_to application.company_name, application_path(application) %></td>
-      <td><%= application.position %>
-      <td><%= application.location %>
-      <td><%= application.status.name %></td>
+      <th>Company</th>
+      <th>Position</th>
+      <th>Location</th>
+      <th>Status</th>
     </tr>
-  <% end %>
-</table>
+    <% @applications.each do |application| %>
+      <tr>
+        <td><%= link_to application.company_name, application_path(application) %></td>
+        <td><%= application.position %>
+        <td><%= application.location %>
+        <td><%= application.status.name %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

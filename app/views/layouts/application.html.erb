@@ -7,8 +7,20 @@
   </head>
 
   <body>
-    <div class="container" style="padding-top:20px;">
-      <%= yield %>
-    </div>
+    <font face = "Helvetica">
+
+      <div id="header" style="position:absolute; top:0px; left:0px; height:200px; right:0px; overflow:hidden;">
+        <h3 style="width:100%; background-color:#1798c1; margin: -2mm 0 0 -5mm; padding: 7mm 7mm;">
+          <a style="text-decoration:none;" href="/"><font color="white" size=4>Job Application Tracking System</font></a>
+        </h3>
+      </div>
+
+      <div id="content" style="position:absolute; top:70px; bottom:10px; left:0px; right:0px; overflow:auto;">
+        <div class="container" style="padding:20px;" style="padding:10px;">
+          <%= yield %>
+        </div>
+      </div>
+
+    </font>
   </body>
 </html>
