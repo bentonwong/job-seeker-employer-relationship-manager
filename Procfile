@@ -1,2 +1,2 @@
-web: bundle exec rails server -p $PORT
-script: script/mailman_server
+web: bundle exec puma -p $PORT c ./config/puma.rb
+mailman: bundle exec script/mailman_server
