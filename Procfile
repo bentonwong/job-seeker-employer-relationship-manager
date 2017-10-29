@@ -1,3 +1,2 @@
-web: bundle exec puma -t 5:5 -p ${PORT:-3000} -e ${RACK_ENV:-development}
-release: figaro heroku:set -e production
-release: script/mailman_server
+web: bundle exec rails server -p $PORT
+script: script/mailman_server

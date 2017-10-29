@@ -35,7 +35,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-#gem 'pry'
+gem 'pry'
 gem 'filterrific'
 
 # Use Dropzone for drag and drop of document to upload.
@@ -50,6 +50,7 @@ gem 'faraday'
 gem 'active_model_serializers'
 gem 'faker'
 gem 'foreman', '~> 0.82.0'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

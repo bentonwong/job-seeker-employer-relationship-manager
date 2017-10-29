@@ -1,9 +1,11 @@
 #!/usr/bin/env ruby
-require "rubygems"
-require "bundler/setup"
-require "mailman"
-ENV['RAILS_ENV'] = ARGV.first || ENV['RAILS_ENV'] || 'production'
+require 'rubygems'
+require 'bundler/setup'
+require 'mailman'
+#ENV['RAILS_ENV'] = ARGV.first || ENV['RAILS_ENV'] || 'development'
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
+
+Mailman.config.poll_interval = 30
 
 Mailman.config.pop3 = {
   username: ENV["GMAIL_USERNAME"],
