@@ -17,7 +17,7 @@ class ApplicationsController < ApplicationController
   def create
     @application = Application.new(application_params)
     if @application.save
-      redirect_to @application
+      redirect_to :controller => 'companies', :action => 'glassdoor_search', :params => {:query => @application.company_name, :application_id => @application.id}
     else
       render :new
     end

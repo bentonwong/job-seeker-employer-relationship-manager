@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 
   root 'applications#index'
 
-  get '/search', to: 'companies#search'
+  get '/search', to: 'companies#glassdoor_search'
   post '/search', to: 'companies#glassdoor_search'
-  
 end
